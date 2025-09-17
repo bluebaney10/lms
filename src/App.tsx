@@ -14,7 +14,6 @@ import useAuthStore from "./store/auth.store";
 import Home from "./pages/Home";
 import { Toaster } from "react-hot-toast";
 import Header from "./components/header";
-import CourseFormPopup from "./popups/CourseFormPopup";
 
 const App = () => {
   const { isAuthenticated } = useAuthStore();

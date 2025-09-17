@@ -25,7 +25,7 @@ const getUserFromStorage = (): User | null => {
   }
 };
 
-const useAuthStore = create<AuthState>((set, get) => ({
+const useAuthStore = create<AuthState>((set) => ({
   token: localStorage.getItem("token") || "",
   isAuthenticated: !!localStorage.getItem("token"),
   user: getUserFromStorage(),
