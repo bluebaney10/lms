@@ -44,8 +44,8 @@ const CoursesPage = () => {
         onCancel={() => setDeleteId(null)}
       />
       <h2 className="head text-center">Courses</h2>
-      <div>
-        <button className="btn bt-primary mb-8" onClick={openAddForm}>
+      <div className="w-full mb-8">
+        <button className="btn bt-primary mx-auto" onClick={openAddForm}>
           + Add Course
         </button>
       </div>

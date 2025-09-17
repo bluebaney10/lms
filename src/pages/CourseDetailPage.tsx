@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { api } from "../services/api";
 import useAuthStore from "../store/auth.store";
 import type { Course } from "../type";
 
@@ -11,15 +11,13 @@ const CourseDetailPage = () => {
 
   useEffect(() => {
     const fetchCourse = async () => {
-      const res = await axios.get(`http://localhost:3000/course/detail/${id}`, {
+      const res = await api.get(`/course/detail/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCourse(res.data);
     };
     fetchCourse();
   }, [id]);
-
-  if (!course) return <div className="p-8">Loading...</div>;
 
   return (
     <div className="page">
@@ -31,9 +29,9 @@ const CourseDetailPage = () => {
       </div>
 
       <div className="p-4 rounded shadow">
-        <h3 className="text-3xl font-bold mb-4">{course.title}</h3>
-        <p className="text-gray-600 mb-6">{course.description}</p>
-        <p className="text-gray-800 whitespace-pre-line">{course.content}</p>
+        <h3 className="text-3xl font-bold mb-4">{course?.title}</h3>
+        <p className="text-gray-600 mb-6">{course?.description}</p>
+        <p className="text-gray-800 whitespace-pre-line">{course?.content}</p>
       </div>
     </div>
   );
